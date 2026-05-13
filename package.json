@@ -1,0 +1,56 @@
+{
+  "name": "tunnel-tool",
+  "version": "1.0.0",
+  "description": "Tunnel Tool - Proxy & SSH Tunnel Manager",
+  "author": "Zhanghaohao666",
+  "license": "MIT",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js --mode development && electron .",
+    "dev": "webpack --config webpack.config.js --mode development && electron .",
+    "build": "webpack --config webpack.config.js --mode production",
+    "pack": "webpack --config webpack.config.js --mode production && electron-builder --win nsis",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "selfsigned": "^5.5.0",
+    "ssh2": "^1.16.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "build": {
+    "appId": "com.tunnel-tool.app",
+    "productName": "Tunnel Tool",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Tunnel Tool"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ]
+  }
+}
